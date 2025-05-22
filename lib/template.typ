@@ -19,14 +19,22 @@
 
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.where(kind: table): it => {
-    show figure.caption: set align(right)
-    it
+
+    align(right)[
+      #emph([#it.caption.supplement #it.caption.counter.display()])
+    ]
+    align(center)[
+      #strong(it.caption.body)
+    ]
+    set text(size: 12pt)
+    it.body
   }
   show figure.caption: it => emph(it)
 
   set list(indent: 1.25cm, marker: [--])
 
-  set math.equation(numbering: "(1)")
+  //set math.equation(numbering: "(1)")
+  //show figure: set block(breakable: true)
 
   show ref: it => {
     let eq = math.equation
